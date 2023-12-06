@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.*;
+
+public class MetaDatiJDBC {
+
+	public static void main(String[] args) {
+		String url =  "jdbc:ucanaccess://C:/Users/Riccardo/eclipse-workspace/JDBC-Intro/src/test1.accdb";
+	    String sql = "SELECT * FROM tabella1";
+	    Connection co;
+	    Statement st;
+	    try {
+			co = DriverManager.getConnection(url);
+			st = co.createStatement();
+			ResultSet re = st.executeQuery(sql);
+			ResultSetMetaData rsmd = re.getMetaData();
+			int numercol = rsmd.getColumnCount();
+			for (int i = 1; i < numercol; i++) {
+				String n = rsmd.getColumnName(i);
+				String t = rsmd.getColumnTypeName(i);
+				System.out.println("colonna   " + n + "   "+t);
+				}
+			}
+	    catch (Exception err)   
+        {  
+             System.out.println("ERRORE: " + err);  
+        }  
+	}
+
+}
