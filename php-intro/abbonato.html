@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    
+    <title>Form Abbonato</title>
+
+       <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+       
+
+        h2 {
+            margin-top: 10;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 19);
+        }
+
+        label {
+            font-family: Arial, sans-serif;
+        } </style>
+</head>
+<body>
+    <h2>Modulo Abbonamento</h2>
+    <form method="POST" action="abbonato.php">
+        <br>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="cognome">Cognome:</label><br>
+        <input type="text" name="cognome" required><br><br>
+
+        <label for="citta">Citt&aacute;:</label><br>
+        <input type="text"  name="citta" required><br><br>
+
+        <input type="checkbox" id="abbonato" name="abbonato" value="si">
+        <label for="abbonato">Abbonato</label><br><br>
+
+        <input type="submit" name="submit" value="Invia">
+    </form>
+</body>
+</html>

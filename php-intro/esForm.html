@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>
+            form
+        </title>
+    </head>
+    <body>
+
+        <script type="text/javascript" language="javascript">
+
+            function validaForm()
+                {
+                    if(/\d/.test(document.form.cognome.value) || /\d/.test(document.form.nome.value))
+                    {
+                        alert("il nome o il cognome inserito contiene un numero");
+                        return false;
+                    }
+                    else
+                    {
+                        if(document.form.cognome.value == "" || document.form.nome.value == "")
+                        {
+                            alert("inserisci il nome e cognome");
+                            return false;
+                        }
+                    }
+
+                    if(document.form.ateneo.value == "")
+                    {
+                        alert("seleziona un ateneo");
+                        return false;
+                    }
+
+                    if (document.form.CAP.value.length!=5)
+                    {
+                        alert("Il CAP deve contenere 5 cifre");
+                        return false;
+                    }
+                    if(document.form.lavoro.selectedOptions.length > 0)
+                    {
+                        alert("seleziona un lavoro");
+                        return false;
+                    }
+                }
+
+        </script>
+
+        <form action="esForm.php" method="post" name="form" onsubmit="return validaForm();">
+            
+            nome: <input type="text" name="nome" size="15" maxlength="50"> <br><br>
+            
+            cognome: <input type="text" name="cognome" size="15" maxlength="50"> <br><br>
+            
+            sesso: <br>
+            <input type="radio" name="sesso" value="maschio" required>maschio <br>
+            <input type="radio" name="sesso" value="femmina" required>femmina <br><br>
+
+            ateneo: 
+            <select name="ateneo" required>
+                <option value="IIS Euganeo">IIS Euganeo</option>
+                <option value="Atestino">Atestino</option>
+                <option value="Duca">Duca</option>
+                <option value="IPIA">IPIA</option>
+                <option value="Ferrari">Ferrari</option>
+            </select> <br><br>
+
+            CAP: <input type="text" name="CAP" size="5" maxlength="5"> <br><br>
+
+            lavoro: <br>
+            <select name="lavoro[]" multiple="multiple" rows="5">
+                <option value="cameriere">cameriere</option>
+                <option value="pizzaiolo">pizzaiolo</option>
+                <option value="barista">barista</option>
+                <option value="youtuber">youtuber</option>
+                <option value="         ">         </option>
+            </select> <br><br>
+
+            descrizione lavoro: <br>
+            <textarea name="area" cols="30" rows="10"></textarea> <br><br>
+
+            <input type="submit" name="submit" value="invio" ondblclick="validaForm()"> <br><br>
+
+            <input type="reset" name="reset" value="reset">
+
+        </form>
+    </body>
+</html>
